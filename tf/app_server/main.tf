@@ -187,7 +187,7 @@ resource "tfe_workspace" "demo" {
   organization = var.tfe_organization
 
   vcs_repo {
-    identifier     = "stoffee/terraform-run-task-graph"
+    identifier     = "jennamwong/terraform-run-task-graph"
     branch         = "main"
     oauth_token_id = var.oauth_token_id
   }
