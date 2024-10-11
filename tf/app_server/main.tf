@@ -26,9 +26,9 @@ variable "tfe_organization" {
   description = "The name of the Terraform Cloud organization"
 }
 
-variable "oauth_token_id" {
+variable "github_app_installation_id" {
   type        = string
-  description = "The OAuth token ID for connecting to VCS"
+  description = "The installation ID of the GitHub App for connecting to VCS"
 }
 
 provider "aws" {
@@ -189,7 +189,7 @@ resource "tfe_workspace" "demo" {
   vcs_repo {
     identifier     = "jennamwong/terraform-run-task-graph"
     branch         = "main"
-    oauth_token_id = var.oauth_token_id
+    github_app_installation_id = var.github_app_installation_id
   }
 
   working_directory = "tf/demo_server"
