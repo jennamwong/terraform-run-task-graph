@@ -142,6 +142,9 @@ resource "aws_instance" "demo" {
   tags = {
     Name = "${var.prefix}-instance"
   }
+  provisioner "local-exec" {
+    command = "echo ${self.subnet_id} >> test.txt"
+  }
 }
 
 # New resources start here
