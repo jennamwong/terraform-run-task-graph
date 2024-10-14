@@ -2,11 +2,11 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "5.69.0"
+      version = "5.7.0"
     }
     tfe = {
       source  = "hashicorp/tfe"
-      version = "0.42.0"
+      version = "0.59.0"
     }
   }
 }
@@ -212,10 +212,8 @@ resource "tfe_workspace_run_task" "demo" {
   enforcement_level = "advisory"
 }
 
-output "aws_instance_login_information" {
-  value = <<INSTANCEIP
-  http://${aws_instance.app.public_ip}
-INSTANCEIP
+output "graph_app_url" {
+  value = "http://${aws_instance.app.public_ip}"
 }
 
 output "tfe_run_task_id" {
